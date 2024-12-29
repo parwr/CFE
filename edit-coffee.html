@@ -154,7 +154,8 @@
       const price = prompt('Enter new price:', '');
       const quantity = prompt('Enter new quantity:', '');
 
-      if (name === null || price === null || quantity === null) return; // Check if the user canceled any prompt
+      if (name === null || price === null || quantity === null) return; 
+
 
       try {
         const response = await fetch(scriptURL, {
@@ -170,7 +171,8 @@
 
         if (response.ok) {
           showMessage('Row updated successfully.', 'success');
-          fetchData(); // Refresh the table after update
+          fetchData(); 
+
         } else {
           showMessage('Failed to update row.', 'error');
         }
@@ -195,7 +197,8 @@
 
         if (response.ok) {
           showMessage('Row deleted successfully.', 'success');
-          fetchData(); // Refresh the table after deletion
+          fetchData(); 
+
         } else {
           showMessage('Failed to delete row.', 'error');
         }
