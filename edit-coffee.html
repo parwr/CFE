@@ -130,7 +130,8 @@
       const tbody = document.querySelector("#data-table tbody");
       tbody.innerHTML = "";
 
-      data.forEach((row, index) => {
+      
+      data.reverse().forEach((row, index) => {
         if (row.length < 4) return;
         const priceWithDollar = row[2] ? `$${row[2]}` : "";
         const formattedDate = formatDate(row[0]);
@@ -154,8 +155,7 @@
       const price = prompt('Enter new price:', '');
       const quantity = prompt('Enter new quantity:', '');
 
-      if (name === null || price === null || quantity === null) return; 
-
+      if (name === null || price === null || quantity === null) return;
 
       try {
         const response = await fetch(scriptURL, {
@@ -172,7 +172,6 @@
         if (response.ok) {
           showMessage('Row updated successfully.', 'success');
           fetchData(); 
-
         } else {
           showMessage('Failed to update row.', 'error');
         }
@@ -198,7 +197,6 @@
         if (response.ok) {
           showMessage('Row deleted successfully.', 'success');
           fetchData(); 
-
         } else {
           showMessage('Failed to delete row.', 'error');
         }
